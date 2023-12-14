@@ -2,8 +2,7 @@ const cityInput = document.querySelector("#city-input");
 const searchButton = document.querySelector("#search-btn");
 const currentWeatherDiv = document.querySelector(".current-weather");
 const daysForecastDiv = document.querySelector(".days-forecast");
-const API_KEY = "c7a75c83acadf4f1c195ebc4fe4a3757"; // Paste your API here
-// Create weather card HTML based on weather data
+const API_KEY = "c7a75c83acadf4f1c195ebc4fe4a3757"; 
 const createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0) {
         return `<div class="mt-3 d-flex justify-content-between">
@@ -32,7 +31,6 @@ const createWeatherCard = (cityName, weatherItem, index) => {
                 </div>`;
     }
 }
-// Get weather details of passed latitude and longitude
 const getWeatherDetails = (cityName, latitude, longitude) => {
     const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`;
     fetch(WEATHER_API_URL).then(response => response.json()).then(data => {
@@ -61,7 +59,6 @@ const getWeatherDetails = (cityName, latitude, longitude) => {
         alert("An error occurred while fetching the weather forecast!");
     });
 }
-// Get coordinates of entered city name
 const getCityCoordinates = () => {
     const cityName = cityInput.value.trim();
     if (cityName === "") return;
